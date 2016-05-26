@@ -2,3 +2,9 @@ body {
 	background: red;
 	background-size: cover
 }
+
+.btn-default {
+	color: green;
+	font-size: 20;
+	border-width: 0;
+}
