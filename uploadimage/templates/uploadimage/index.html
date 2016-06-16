@@ -68,20 +68,12 @@ app.config(function($httpProvider, $interpolateProvider) {
   $interpolateProvider.endSymbol('$}');
 });
 app.controller('MyCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
-    $scope.uploadPic = function(url) {
-    // alert(Upload.dataUrltoBlob(dataUrl, '1.png'));
-    // console.log($scope.myCroppedImage);
-    // var blob = new Blob([$scope.myCroppedImage], {type: 'image/jpg'});
-    // var file = new File([blob], 'imageFileName.png');
-    var file = $scope.myCroppedImage;
+    $scope.uploadPic = function(file) {
+    var file = Upload.dataUrltoBlob($scope.myCroppedImage, 'a.png');
     file.upload = Upload.upload({
       url: 'http://127.0.0.1:8000/uploadimage/upload/',
-      data: {username: $scope.username, file: Upload.dataUrltoBlob(file, 'a.jpg') },
-    }).then(function (response) {
-      console.log('success');
+      data: {username: $scope.username, file: file },
     })
-
-
     file.upload.then(function (response) {
       $timeout(function () {
         file.result = response.data;

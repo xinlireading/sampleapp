@@ -31,7 +31,8 @@ def upload(request):
 
         path = default_storage.save('{}/{}'.format('avatar',filename), ContentFile(file.read()))
         # tmp_file = os.path.join(settings.MEDIA_ROOT, path)
-        return HttpResponse('POST')
+        print('POST1');
+        return HttpResponse('POST1')
 
     else:
         print('get')
