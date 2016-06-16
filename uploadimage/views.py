@@ -16,6 +16,10 @@ def upload(request):
     if request.method == 'POST':
         username = request.POST['username']
         file = request.FILES['file']
+        # print(request.FILES)
+        # print(request.POST.get('file'))
+        # return;
+        # file = request.FILES.get('file')
         print(file.name)
         print(file.charset)
         print(file.content_type)
@@ -26,7 +30,7 @@ def upload(request):
         filename = file.name
 
         path = default_storage.save('{}/{}'.format('avatar',filename), ContentFile(file.read()))
-        tmp_file = os.path.join(settings.MEDIA_ROOT, path)
+        # tmp_file = os.path.join(settings.MEDIA_ROOT, path)
         return HttpResponse('POST')
 
     else:
