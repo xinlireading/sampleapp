@@ -122,5 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# MEDIA_ROOT = ''
-# MEDIA_URL = ''
+# absolute path. e.g. /Users/yangcun/Documents/git/xinlireading/media_cdn
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
+
+# logic path. e.g. http://127.0.0.1:8000/media/avatar/bitmap.png
+MEDIA_URL = '/media/'
