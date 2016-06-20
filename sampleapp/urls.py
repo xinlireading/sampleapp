@@ -19,10 +19,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    # url(r'^', include('polls.urls')),
     url(r'^polls/', include('polls.urls')),
+    url(r'^ckeditordemo/', include('ckeditordemo.urls')),
     url(r'^uploadimage/', include('uploadimage.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 if settings.DEBUG:

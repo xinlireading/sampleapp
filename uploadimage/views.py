@@ -12,28 +12,13 @@ def index(request):
     return render(request, template_name, None)
 
 def upload(request):
-
     if request.method == 'POST':
         username = request.POST['username']
         file = request.FILES['file']
-        # print(request.FILES)
-        # print(request.POST.get('file'))
-        # return;
-        # file = request.FILES.get('file')
-        print(file.name)
-        print(file.charset)
-        print(file.content_type)
-        print(file.size)
-        print(file.content_type_extra)
-        # print(file.temporary_file_path())
-        # return HttpResponse('POST')
         filename = file.name
-
         path = default_storage.save('{}/{}'.format('avatar',filename), ContentFile(file.read()))
         # tmp_file = os.path.join(settings.MEDIA_ROOT, path)
-        print('POST1');
         return HttpResponse('POST1')
 
     else:
-        print('get')
         return HttpResponse('GET')

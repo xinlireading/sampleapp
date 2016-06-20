@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'uploadimage.apps.UploadimageConfig',
+    'ckeditordemo.apps.CkeditordemoConfig',
+    'ckeditor',
+    'ckeditor_uploader',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -119,7 +122,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 STATIC_URL = '/static/'
 
 # absolute path. e.g. /Users/yangcun/Documents/git/xinlireading/media_cdn
@@ -127,3 +130,6 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
 
 # logic path. e.g. http://127.0.0.1:8000/media/avatar/bitmap.png
 MEDIA_URL = '/media/'
+
+CKEDITOR_JQUERY_URL = 'http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = "uploads/"
